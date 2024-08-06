@@ -2,15 +2,13 @@ import { Component } from '@angular/core';
 import { Material } from '../material';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
 import { ModeloService } from './modelo.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-modelo',
   standalone: true,
-  imports: [Material, CommonModule, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, HttpClientModule],
+  imports: [Material, CommonModule, ReactiveFormsModule, HttpClientModule],
   providers: [ModeloService],
   templateUrl: './modelo.component.html',
   styleUrl: './modelo.component.css'
@@ -26,7 +24,6 @@ export class ModeloComponent {
       dia: [''],
       mes: ['']
     });
-    
   }
   salida :string = "";
   horas :number[] = Array.from({length: 24}, (_, i) => i + 1);
