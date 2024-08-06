@@ -1,0 +1,67 @@
+<mat-card class="mat-elevation-z8" style="margin: 1%">
+  <mat-card-header>
+    <mat-card-title>Proyecto Inteligencia Artificial</mat-card-title>
+    <mat-card-subtitle
+      >Creado por: Carlos Aleman, Emilio Armas, Paul Cajas y Michael
+      Trocellier</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="Entrada">
+          <mat-form-field>
+            <mat-label>Hora (24h)</mat-label>
+            <mat-select formControlName="hora">
+              <mat-option *ngFor="let h of horas" [value]="h"
+                >{{ h }}:00</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Circuito</mat-label>
+            <mat-select formControlName="circuito">
+              <mat-option *ngFor="let c of circuitos.sort()" [value]="c">{{
+                c
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Tipo de incidente</mat-label>
+            <mat-select formControlName="tipo">
+              <mat-option *ngFor="let t of tipos.sort()" [value]="t">{{
+                t
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Día del incidente</mat-label>
+            <mat-select formControlName="dia">
+              <mat-option *ngFor="let d of dias" [value]="d">{{
+                d
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Mes del incidente</mat-label>
+            <mat-select formControlName="mes">
+              <mat-option *ngFor="let m of meses" [value]="m">{{
+                m
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    <div class="boton">
+      <button mat-button (click)="consultarModelo()"><i class="fa fa-file-excel col-sm-3"></i>Consultar Modelo</button>
+      <div>
+        {{salida}}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
